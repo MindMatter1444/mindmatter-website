@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 24 14% 8%;            /* #141210 */
+    --bg-2: 26 14% 9%;          /* #1a1714 */
+    --text: 42 38% 88%;         /* warm cream */
+    --text-dim: 42 30% 78%;
+    --text-faint: 42 18% 58%;
+    --gold: 35 53% 54%;         /* #c89a4a */
+    --gold-bright: 35 60% 60%;  /* #d9ab5b */
+    --border: 42 14% 18%;
+
+    --background: var(--bg);
+    --foreground: var(--text);
+    --card: var(--bg);
+    --card-foreground: var(--text);
+    --popover: var(--bg-2);
+    --popover-foreground: var(--text);
+    --primary: var(--gold);
+    --primary-foreground: var(--bg);
+    --secondary: var(--bg-2);
+    --secondary-foreground: var(--text);
+    --muted: var(--bg-2);
+    --muted-foreground: var(--text-faint);
+    --accent: var(--gold);
+    --accent-foreground: var(--bg);
+    --destructive: 0 70% 50%;
+    --destructive-foreground: var(--text);
+    --input: var(--border);
+    --ring: var(--gold);
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: hsl(var(--bg));
+    color: hsl(var(--text));
+  }
+  ::selection { background: hsl(var(--gold)); color: hsl(var(--bg)); }
+}
+
+@layer components {
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .font-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--gold));
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: hsl(var(--gold));
+    display: inline-block;
+  }
+
+  .gold-text { color: hsl(var(--gold)); }
+  .italic-display { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; color: hsl(var(--gold)); }
+
+  .btn-primary {
+    background: hsl(var(--gold));
+    color: hsl(var(--bg));
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    padding: 14px 24px;
+    border-radius: 2px;
+    transition: background 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: hsl(var(--gold-bright)); }
+
+  .btn-secondary {
+    background: transparent;
+    color: hsl(var(--text-dim));
+    border: 1px solid hsl(var(--border));
+    padding: 14px 24px;
+    border-radius: 2px;
+    font-family: 'Fraunces', serif;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-secondary:hover { border-color: hsl(var(--gold)); color: hsl(var(--gold)); }
+
+  .input-field {
+    background: rgba(235,228,212,0.04);
+    border: 1px solid rgba(235,228,212,0.12);
+    color: hsl(var(--text));
+    border-radius: 2px;
+    padding: 14px 16px;
+    width: 100%;
+    transition: border-color 0.25s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+  }
+  .input-field::placeholder { color: rgba(235,228,212,0.3); }
+  .input-field:focus { outline: none; border-color: hsl(var(--gold)); }
+
+  .field-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: hsl(var(--text-faint));
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-fade { opacity: 0; animation: heroFade 0.9s ease forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+.delay-5 { animation-delay: 0.9s; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
