@@ -1,0 +1,15 @@
+[Unit]
+Description=Mindmatter API (e-post via Resend)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/mindmatter-api
+ExecStart=/usr/bin/node index.js
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/mindmatter-api/.env
+
+[Install]
+WantedBy=multi-user.target

@@ -154,21 +154,13 @@ export const Kontakt = () => {
 
     setStatus("submitting");
 
-    // CAPTCHA verifiseres serverside i send-contact-email (token er engangsbruk).
     const tokenForEmail = captchaToken;
 
-    // Kall edge-funksjonen først – den verifiserer CAPTCHA og håndhever rate limit.
-    // Bruker fetch direkte for å kunne lese statuskode og Retry-After ved 429.
-    const fnUrl = `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/send-contact-email`;
     let emailRes: Response;
     try {
-      emailRes = await fetch(fnUrl, {
+      emailRes = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: parsed.data.name,
           company: parsed.data.company || null,
