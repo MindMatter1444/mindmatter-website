@@ -108,7 +108,7 @@ export function DnsChecklist() {
     <section
       style={{
         background: "hsl(var(--bg-2))",
-        border: "1px solid hsl(var(--line))",
+        border: "1px solid hsl(var(--border))",
         borderRadius: 12,
         padding: 20,
         marginBottom: 24,
@@ -125,7 +125,7 @@ export function DnsChecklist() {
             style={{
               background: "hsl(var(--bg))",
               color: "hsl(var(--text))",
-              border: "1px solid hsl(var(--line))",
+              border: "1px solid hsl(var(--border))",
               borderRadius: 8,
               padding: "6px 12px",
               fontSize: 12,
@@ -147,7 +147,7 @@ export function DnsChecklist() {
             key={`${c.type}-${c.name}`}
             style={{
               background: "hsl(var(--bg))",
-              border: "1px solid hsl(var(--line))",
+              border: "1px solid hsl(var(--border))",
               borderRadius: 8,
               padding: 14,
             }}

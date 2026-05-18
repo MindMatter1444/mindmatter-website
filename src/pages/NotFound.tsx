@@ -9,12 +9,49 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
+    <div
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "hsl(var(--bg))",
+      }}
+    >
+      <div style={{ textAlign: "center" }}>
+        <p
+          style={{
+            fontFamily: "monospace",
+            fontSize: 11,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            color: "hsl(var(--gold))",
+            marginBottom: 16,
+          }}
+        >
+          404
+        </p>
+        <h1
+          style={{
+            fontFamily: "Fraunces, Georgia, serif",
+            fontSize: "clamp(2rem, 6vw, 3.5rem)",
+            fontWeight: 300,
+            color: "hsl(var(--text))",
+            marginBottom: 16,
+            lineHeight: 1.1,
+          }}
+        >
+          Siden finnes ikke
+        </h1>
+        <p style={{ color: "hsl(var(--text-dim))", marginBottom: 32 }}>
+          Adressen du lette etter eksisterer ikke.
+        </p>
+        <a
+          href="/"
+          className="btn-primary"
+          style={{ display: "inline-block" }}
+        >
+          Tilbake til forsiden
         </a>
       </div>
     </div>
